@@ -18,6 +18,7 @@ on:
       - master
     paths:
       - '.config'
+      - '.github/workflows/build-openwrt.yml'
 #  schedule:
 #    - cron: 0 8 * * 5
   watch:
@@ -58,7 +59,6 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
-        curl -fsSL https://raw.githubusercontent.com/P3TERX/dotfiles/master/.bashrc >> ~/.bashrc
 
     - name: Clone source code
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
